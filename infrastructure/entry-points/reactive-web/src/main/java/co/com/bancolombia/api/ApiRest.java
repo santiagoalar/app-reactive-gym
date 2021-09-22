@@ -3,10 +3,7 @@ import co.com.bancolombia.model.cliente.Cliente;
 import co.com.bancolombia.usecase.cliente.ClienteUseCase;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -17,7 +14,7 @@ public class ApiRest {
 
 
     @PostMapping(path = "/create")
-    public Mono<Cliente> create(Cliente cliente) {
+    public Mono<Cliente> create(@RequestBody Cliente cliente) {
         return clienteUseCase.execute(cliente);
     }
 }
