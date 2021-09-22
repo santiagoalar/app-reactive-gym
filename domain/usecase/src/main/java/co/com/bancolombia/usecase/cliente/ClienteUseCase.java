@@ -3,6 +3,7 @@ package co.com.bancolombia.usecase.cliente;
 import co.com.bancolombia.model.cliente.Cliente;
 import co.com.bancolombia.model.cliente.gateways.ClienteRepository;
 import lombok.RequiredArgsConstructor;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
@@ -12,5 +13,9 @@ public class ClienteUseCase {
 
     public Mono<Cliente> execute(Cliente cliente){
         return clienteRepository.create(cliente);
+    }
+
+    public Flux<Cliente> getAll(){
+        return clienteRepository.getAll();
     }
 }
