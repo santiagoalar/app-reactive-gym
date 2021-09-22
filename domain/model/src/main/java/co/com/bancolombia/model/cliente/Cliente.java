@@ -19,5 +19,4 @@ public class Cliente {
     private Double peso;
     private String idInstructor;
     private String idSede;
-
 }
