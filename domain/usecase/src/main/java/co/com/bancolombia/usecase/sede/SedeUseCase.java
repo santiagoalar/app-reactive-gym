@@ -6,9 +6,11 @@ import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.PrimitiveIterator;
+
 @RequiredArgsConstructor
 public class SedeUseCase {
-    SedeRepository serviceGateWay;
+    private final SedeRepository serviceGateWay;
 
     public Flux<Sede> getAllSedes(){ return serviceGateWay.getAll(); }
     public Mono<Sede> getSedeById(String id){ return serviceGateWay.getSedeById(id); }
