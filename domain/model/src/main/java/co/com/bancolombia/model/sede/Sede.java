@@ -12,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Sede {
     private String id;
+    private String sedeName;
     private String address;
     private List trainerId;
 }

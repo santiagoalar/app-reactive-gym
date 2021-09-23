@@ -13,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class SedeData {
     private String id;
+    private String sedeName;
     private String address;
     private List trainerId;
 }
