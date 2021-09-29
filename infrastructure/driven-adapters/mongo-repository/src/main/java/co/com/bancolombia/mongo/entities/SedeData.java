@@ -1,16 +1,17 @@
-package co.com.bancolombia.model.sede;
+package co.com.bancolombia.mongo.entities;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+@Document("sedes")
 @Data
 @Builder(toBuilder = true)
 @AllArgsConstructor
-@NoArgsConstructor
-public class Sede {
+public class SedeData {
     private String id;
     private String sedeName;
     private String address;
