@@ -19,4 +19,12 @@ public class InstructorUseCase {
     public Flux<Instructor> getALl(){
         return instructorRepository.getAll();
     }
+
+    public Mono<Void> deleteOne(String id){
+        return instructorRepository.delete(id);
+    }
+
+    public Mono<Instructor> updateOne(Instructor instructor){
+        return instructorRepository.update(instructor);
+    }
 }

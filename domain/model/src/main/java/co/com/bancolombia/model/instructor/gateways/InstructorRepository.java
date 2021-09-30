@@ -7,5 +7,6 @@ import reactor.core.publisher.Mono;
 public interface InstructorRepository {
     Mono<Instructor> create(Instructor instructor);
     Flux<Instructor> getAll();
-
+    Mono<Void> delete(String id);
+    Mono<Instructor> update(Instructor instructor);
 }

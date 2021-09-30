@@ -41,5 +41,21 @@ public class InstructorRepositoryAdapter extends AdapterOperations<Instructor, I
         return repository.findAll().map(this::toEntity);
     }
 
+    @Override
+    public Mono<Void> delete(String id) {
+        InstructorEntity instructorEntity = InstructorEntity.builder().id(id).build();
+        return repository.delete(instructorEntity).then(Mono.empty());
+    }
+
+    @Override
+    public Mono<Instructor> update(Instructor instructor) {
+        return repository.findById(instructor.getId()).flatMap(currentInstructor -> {
+            currentInstructor.setNombre(instructor.getNombre());
+            currentInstructor.setCorreo(instructor.getCorreo());
+            currentInstructor.setTipoPersona(instructor.getTipoPersona());
+            return repository.save(currentInstructor).map(this::toEntity);
+        });
+    }
+
 
 }

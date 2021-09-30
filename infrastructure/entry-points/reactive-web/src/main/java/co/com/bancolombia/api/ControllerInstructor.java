@@ -13,33 +13,26 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class ControllerInstructor {
 
-    /*
-    *     @PostMapping(path = "/create")
-    public Mono<Cliente> create(@RequestBody Cliente cliente) {
-        return clienteUseCase.execute(cliente);
-    }
-
-    *
-    * */
-
     private final InstructorUseCase instructorUseCase;
-
-    @GetMapping(path = "/")
-    public void index(){
-        System.out.println("Hola Mundo");
-    }
 
     @GetMapping(path = "/get-all")
     public Flux<Instructor> getAll(){
-        System.out.println("Get all");
         return instructorUseCase.getALl();
     }
 
     @PostMapping(path = "/create")
     public Mono<Instructor> create(@RequestBody Instructor instructor){
-        System.out.println(instructor);
         return instructorUseCase.execute(instructor);
     }
 
+    @DeleteMapping(path = "/delete/{id}")
+    public Mono<Void> deleteOne(@PathVariable String id){
+        return instructorUseCase.deleteOne(id);
+    }
+
+    @PutMapping(path = "/update")
+    public Mono<Instructor> updateOne(@RequestBody Instructor instructor){
+        return instructorUseCase.updateOne(instructor);
+    }
 
 }
