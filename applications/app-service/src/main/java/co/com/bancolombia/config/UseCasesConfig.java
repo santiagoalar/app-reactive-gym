@@ -1,5 +1,7 @@
 package co.com.bancolombia.config;
 
+import co.com.bancolombia.model.sede.gateways.SedeRepository;
+import co.com.bancolombia.usecase.sede.SedeUseCase;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
@@ -11,4 +13,7 @@ import org.springframework.context.annotation.FilterType;
         },
         useDefaultFilters = false)
 public class UseCasesConfig {
+        public SedeUseCase sedeUseCase(SedeRepository sedeRepository){
+                return new SedeUseCase(sedeRepository);
+        }
 }
